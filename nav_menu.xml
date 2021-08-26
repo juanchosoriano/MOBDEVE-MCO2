@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/notes"
+        android:icon="@drawable/notes"
+        android:title="Notes">
+    </item>
+    <item
+        android:id="@+id/todo"
+        android:icon="@drawable/todo"
+        android:title="To-Do List">
+    </item>
+    <item
+        android:id="@+id/events"
+        android:icon="@drawable/events"
+        android:title="Events">
+    </item>
+    <item android:title="Friends">
+        <menu>
+            <item
+                android:id="@+id/friendslist"
+                android:icon="@drawable/friendlist"
+                android:title="My Friends" />
+            <item
+                android:id="@+id/add"
+                android:icon="@drawable/addfriend"
+                android:title="Add Friends" />
+        </menu>
+    </item>
+    <item android:title="Options">
+        <menu>
+            <item
+                android:id="@+id/settings"
+                android:icon="@drawable/settings"
+                android:title="App Settings" />
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/logout"
+                android:title="Logout" />
+        </menu>
+    </item>
+</menu>
