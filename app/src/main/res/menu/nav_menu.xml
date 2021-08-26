@@ -20,11 +20,11 @@
             <item
                 android:id="@+id/friendslist"
                 android:icon="@drawable/friendlist"
-                android:title="My Friends"></item>
+                android:title="My Friends" />
             <item
                 android:id="@+id/add"
                 android:icon="@drawable/addfriend"
-                android:title="Add Friends"></item>
+                android:title="Add Friends" />
         </menu>
     </item>
     <item android:title="Options">
@@ -32,11 +32,11 @@
             <item
                 android:id="@+id/settings"
                 android:icon="@drawable/settings"
-                android:title="App Settings"></item>
+                android:title="App Settings" />
             <item
                 android:id="@+id/logout"
                 android:icon="@drawable/logout"
-                android:title="Logout"></item>
+                android:title="Logout" />
         </menu>
     </item>
 </menu>

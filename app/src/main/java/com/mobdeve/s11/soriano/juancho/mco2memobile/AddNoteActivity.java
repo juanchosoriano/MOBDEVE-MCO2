@@ -14,6 +14,7 @@ public class AddNoteActivity extends AppCompatActivity {
     FloatingActionButton fabDraw;
     FloatingActionButton fabImage;
     FloatingActionButton fabPost;
+    FloatingActionButton fabDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class AddNoteActivity extends AppCompatActivity {
         this.fabCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(AddNoteActivity.this, "Returning to your notes...", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
@@ -58,6 +60,15 @@ public class AddNoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(AddNoteActivity.this, "Coming soon!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        this.fabDelete = findViewById(R.id.fab_delete);
+        this.fabDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(AddNoteActivity.this, "Successfully deleted note.", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
