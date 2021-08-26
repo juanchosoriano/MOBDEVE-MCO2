@@ -5,6 +5,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -16,6 +18,9 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * I think the Main Activity can host all viewing features:
  * - Notes
@@ -24,7 +29,8 @@ import com.google.android.material.navigation.NavigationView;
  * - Friends list.
  * We'll just change the adapters depending on the one being viewed(?)
  */
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, NoteClickListener{
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle abdToggle;
     NavigationView navigationView;
@@ -36,13 +42,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     RecyclerView rvTodo;
     RecyclerView rvEvents;
     RecyclerView rvFriends;
+    List<NoteModel> noteModels = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
+        RecyclerView noteList = findViewById(R.id.rv_notes);
+        noteModels.add(new NoteModel("1", "Dummy data 1", "July 24,2021"));
+        noteModels.add(new NoteModel("2", "Dummy data 2", "May 20,2021"));
+        noteModels.add(new NoteModel("3", "Dummy data 3", "August 26,2021"));
+        NoteAdaptor noteAdaptor = new NoteAdaptor(noteModels, MainActivity.this);
+        noteList.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        noteList.setAdapter(noteAdaptor);
         this.initComponents();
     }
 
@@ -117,6 +130,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initComponents() {
+
+
         Toolbar toolbar = findViewById(R.id.tb_toolbar);
         setSupportActionBar(toolbar);
 
@@ -164,5 +179,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         this.rvTodo.setVisibility(View.GONE);
         this.rvEvents.setVisibility(View.GONE);
         this.rvFriends.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onClickItem(NoteModel noteModel) {
+        Intent intent = new Intent(MainActivity.this, AddNoteActivity.class);
+        intent.putExtra("id", noteModel.getId());
+        intent.putExtra("note_texts", noteModel.getNote_data());
+        intent.putExtra("create_time", noteModel.getCreated_at());
+        startActivity(intent);
     }
 }
