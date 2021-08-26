@@ -1,0 +1,37 @@
+com/mobdeve/s11/soriano/juancho/mco2memobile/SettingsActivity.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.SettingsActivity
+com/mobdeve/s11/soriano/juancho/mco2memobile/NoteModel.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.NoteModel
+com/mobdeve/s11/soriano/juancho/mco2memobile/ViewFriendsActivity.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.ViewFriendsActivity
+com/mobdeve/s11/soriano/juancho/mco2memobile/AddEventActivity.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.AddEventActivity
+com/mobdeve/s11/soriano/juancho/mco2memobile/AddFriendsActivity.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.AddFriendsActivity
+com/mobdeve/s11/soriano/juancho/mco2memobile/BuildConfig.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.BuildConfig
+com/mobdeve/s11/soriano/juancho/mco2memobile/AddItemActivity.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.AddItemActivity
+com/mobdeve/s11/soriano/juancho/mco2memobile/NoteClickListener.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.NoteClickListener
+com/mobdeve/s11/soriano/juancho/mco2memobile/Constants.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.Constants
+com/mobdeve/s11/soriano/juancho/mco2memobile/NoteAdaptor.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.NoteAdaptor
+ com.mobdeve.s11.soriano.juancho.mco2memobile.NoteAdaptor$1
+ com.mobdeve.s11.soriano.juancho.mco2memobile.NoteAdaptor$NoteViewHolder
+com/mobdeve/s11/soriano/juancho/mco2memobile/RegisterActivity.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.RegisterActivity
+com/mobdeve/s11/soriano/juancho/mco2memobile/AddNoteActivity.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.AddNoteActivity
+ com.mobdeve.s11.soriano.juancho.mco2memobile.AddNoteActivity$1
+ com.mobdeve.s11.soriano.juancho.mco2memobile.AddNoteActivity$2
+ com.mobdeve.s11.soriano.juancho.mco2memobile.AddNoteActivity$3
+ com.mobdeve.s11.soriano.juancho.mco2memobile.AddNoteActivity$4
+com/mobdeve/s11/soriano/juancho/mco2memobile/MainActivity.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.MainActivity
+ com.mobdeve.s11.soriano.juancho.mco2memobile.MainActivity$1
+com/mobdeve/s11/soriano/juancho/mco2memobile/LoginActivity.java
+ com.mobdeve.s11.soriano.juancho.mco2memobile.LoginActivity
+ com.mobdeve.s11.soriano.juancho.mco2memobile.LoginActivity$1
+ com.mobdeve.s11.soriano.juancho.mco2memobile.LoginActivity$2

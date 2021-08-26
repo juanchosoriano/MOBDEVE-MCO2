@@ -3,6 +3,8 @@ package com.mobdeve.s11.soriano.juancho.mco2memobile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +21,12 @@ public class AddNoteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_note_activity);
+        String id = getIntent().getStringExtra("id");
+        String noteText = getIntent().getStringExtra("note_texts");
+        String noteDate = getIntent().getStringExtra("create_time");
 
+        EditText note_data = findViewById(R.id.et_noteinput);
+        note_data.setText(noteText);
         this.initComponents();
     }
 

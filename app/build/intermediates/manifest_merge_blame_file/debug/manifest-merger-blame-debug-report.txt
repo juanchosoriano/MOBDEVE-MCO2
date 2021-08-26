@@ -1,0 +1,112 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.mobdeve.s11.soriano.juancho.mco2memobile"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml
+10
+11    <application
+11-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:5:5-53:19
+12        android:allowBackup="true"
+12-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:6:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.6.0] C:\Users\Angeline\.gradle\caches\transforms-3\d121582385e30cbfab93ccb1fbdbeb57\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+14        android:debuggable="true"
+15        android:extractNativeLibs="false"
+16        android:icon="@mipmap/ic_launcher"
+16-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:7:9-43
+17        android:label="@string/app_name"
+17-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:8:9-41
+18        android:roundIcon="@mipmap/ic_launcher_round"
+18-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:9:9-54
+19        android:supportsRtl="true"
+19-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:10:9-35
+20        android:testOnly="true"
+21        android:theme="@style/Theme.Memobile" >
+21-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:11:9-46
+22        <activity
+22-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:12:9-16:75
+23            android:name="com.mobdeve.s11.soriano.juancho.mco2memobile.MainActivity"
+23-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:13:13-41
+24            android:exported="true"
+24-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:14:13-36
+25            android:label=""
+25-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:15:13-29
+26            android:theme="@style/Theme.AppCompat.NoActionBar" />
+26-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:16:13-63
+27        <activity
+27-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:17:9-19:75
+28            android:name="com.mobdeve.s11.soriano.juancho.mco2memobile.RegisterActivity"
+28-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:18:13-45
+29            android:theme="@style/Theme.AppCompat.NoActionBar" />
+29-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:19:13-63
+30        <activity
+30-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:20:9-30:20
+31            android:name="com.mobdeve.s11.soriano.juancho.mco2memobile.LoginActivity"
+31-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:21:13-42
+32            android:theme="@style/Theme.AppCompat.NoActionBar" >
+32-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:22:13-63
+33
+34            <!-- App is set to always launch on login screen for the demo. -->
+35            <intent-filter>
+35-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:25:13-29:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:26:17-69
+36-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:26:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:28:17-77
+38-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:28:27-74
+39            </intent-filter>
+40        </activity>
+41        <activity
+41-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:31:9-33:75
+42            android:name="com.mobdeve.s11.soriano.juancho.mco2memobile.AddNoteActivity"
+42-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:32:13-44
+43            android:theme="@style/Theme.AppCompat.NoActionBar" />
+43-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:33:13-63
+44        <activity
+44-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:34:9-36:75
+45            android:name="com.mobdeve.s11.soriano.juancho.mco2memobile.AddItemActivity"
+45-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:35:13-44
+46            android:theme="@style/Theme.AppCompat.NoActionBar" />
+46-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:36:13-63
+47        <activity
+47-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:37:9-39:75
+48            android:name="com.mobdeve.s11.soriano.juancho.mco2memobile.AddEventActivity"
+48-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:38:13-45
+49            android:theme="@style/Theme.AppCompat.NoActionBar" />
+49-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:39:13-63
+50        <activity
+50-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:40:9-42:75
+51            android:name="com.mobdeve.s11.soriano.juancho.mco2memobile.AddFriendsActivity"
+51-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:41:13-47
+52            android:theme="@style/Theme.AppCompat.NoActionBar" />
+52-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:42:13-63
+53        <activity
+53-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:43:9-45:75
+54            android:name="com.mobdeve.s11.soriano.juancho.mco2memobile.SettingsActivity"
+54-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:44:13-45
+55            android:theme="@style/Theme.AppCompat.NoActionBar" />
+55-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:45:13-63
+56        <activity
+56-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:46:9-48:75
+57            android:name="com.mobdeve.s11.soriano.juancho.mco2memobile.ViewFriendsActivity"
+57-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:47:13-48
+58            android:theme="@style/Theme.AppCompat.NoActionBar" />
+58-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:48:13-63
+59
+60        <meta-data
+60-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:50:9-52:57
+61            android:name="preloaded_fonts"
+61-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:51:13-43
+62            android:resource="@array/preloaded_fonts" />
+62-->C:\Users\Angeline\Downloads\MOBDEVE-MCO1-anj-branch\MOBDEVE-MCO1-anj-branch\app\src\main\AndroidManifest.xml:52:13-54
+63    </application>
+64
+65</manifest>
