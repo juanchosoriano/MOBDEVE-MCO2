@@ -1,8 +1,8 @@
 package com.mobdeve.s11.soriano.juancho.mco2memobile;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +20,12 @@ public class AddNoteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_note_activity);
+        String id = getIntent().getStringExtra("id");
+        String noteText = getIntent().getStringExtra("note_texts");
+        String noteDate = getIntent().getStringExtra("create_time");
 
+        EditText note_data = findViewById(R.id.et_noteinput);
+        note_data.setText(noteText);
         this.initComponents();
     }
 
@@ -29,7 +34,7 @@ public class AddNoteActivity extends AppCompatActivity {
          * For the beta release, all buttons have no function
          * with the exception of the cancel/back button.
          */
-        this.fabCancel = findViewById(R.id.fab_back);
+        this.fabCancel = findViewById(R.id.fab_backevent);
         this.fabCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +60,7 @@ public class AddNoteActivity extends AppCompatActivity {
             }
         });
 
-        this.fabPost = findViewById(R.id.fab_post);
+        this.fabPost = findViewById(R.id.fab_addevent);
         this.fabPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +68,7 @@ public class AddNoteActivity extends AppCompatActivity {
             }
         });
 
-        this.fabDelete = findViewById(R.id.fab_delete);
+        this.fabDelete = findViewById(R.id.fab_delevent);
         this.fabDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

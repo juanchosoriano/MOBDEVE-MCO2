@@ -42,7 +42,7 @@
             android:id="@+id/tv_usermail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/archivo_narrow_bold"
+            android:fontFamily="@font/archivo_narrow"
             android:text="(guest@mail.com)"
             android:textColor="#393939"
             android:textSize="14sp"

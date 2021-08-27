@@ -11,4 +11,7 @@
     <color name="orange">#A35522</color>
     <color name="darkgunmetal">#221F1F</color>
     <color name="lightgrey">#424242</color>
+    <color name="lightergrey">#939393</color>
+    <color name="green">#63AC5E</color>
+    <color name="red">#AC5E5E</color>
 </resources>

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddNoteActivity">
+    tools:context=".AddItemActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tb_toolbarevent"
+        android:id="@+id/tb_toolbarlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/darkgunmetal"
@@ -20,84 +20,66 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_addevent"
+        android:id="@+id/fab_postitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:visibility="visible"
         app:backgroundTint="#00221F1F"
         app:elevation="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarevent"
-        app:layout_constraintEnd_toEndOf="@id/tb_toolbarevent"
-        app:layout_constraintHorizontal_bias="0.997"
-        app:layout_constraintStart_toStartOf="@id/tb_toolbarevent"
-        app:layout_constraintTop_toTopOf="@id/tb_toolbarevent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarlist"
+        app:layout_constraintEnd_toEndOf="@+id/tb_toolbarlist"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/post"
         app:tint="@color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_addimage"
+        android:id="@+id/fab_delitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:visibility="visible"
         app:backgroundTint="#00221F1F"
         app:elevation="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarevent"
-        app:layout_constraintEnd_toStartOf="@+id/fab_addevent"
-        app:layout_constraintTop_toTopOf="@+id/tb_toolbarevent"
+        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarlist"
+        app:layout_constraintEnd_toStartOf="@+id/fab_color"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/fab_backlist"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/addphoto"
-        app:tint="@color/white" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_draw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:visibility="visible"
-        app:backgroundTint="#00221F1F"
-        app:elevation="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarevent"
-        app:layout_constraintEnd_toStartOf="@+id/fab_addimage"
-        app:layout_constraintTop_toTopOf="@+id/tb_toolbarevent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/draw"
-        app:tint="@color/white" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_delevent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:visibility="visible"
-        app:backgroundTint="#00221F1F"
-        app:elevation="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarevent"
-        app:layout_constraintEnd_toStartOf="@+id/fab_draw"
-        app:layout_constraintTop_toTopOf="@+id/tb_toolbarevent"
         app:srcCompat="@drawable/delete"
         app:tint="@color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_backevent"
+        android:id="@+id/fab_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:visibility="visible"
         app:backgroundTint="#00221F1F"
         app:elevation="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarevent"
-        app:layout_constraintEnd_toStartOf="@+id/fab_delevent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarlist"
+        app:layout_constraintEnd_toStartOf="@+id/fab_postitem"
+        app:layout_constraintTop_toTopOf="@+id/tb_toolbarlist"
+        app:srcCompat="@drawable/changecolor"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_backlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:visibility="visible"
+        app:backgroundTint="#00221F1F"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarlist"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cancel"
         app:tint="#A35522" />
 
     <EditText
-        android:id="@+id/et_noteinput"
+        android:id="@+id/et_listinput"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/white"
@@ -105,7 +87,7 @@
         android:ems="10"
         android:fontFamily="@font/archivo_narrow"
         android:gravity="start|top"
-        android:hint="This space is for writing."
+        android:hint="Write details of your list item here!"
         android:inputType="textMultiLine"
         android:padding="5dp"
         android:textColor="@color/black"
@@ -114,8 +96,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_toolbarevent"
-        app:layout_constraintVertical_bias="0.0" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/tb_toolbarlist" />
 </androidx.constraintlayout.widget.ConstraintLayout>
