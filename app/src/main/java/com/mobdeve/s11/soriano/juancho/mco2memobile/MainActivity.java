@@ -87,20 +87,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 firstName.setText(documentSnapshot.getString("FirstName"));
                 email.setText(documentSnapshot.getString("Email"));
-                List<HashMap<String, String>> noteModelMap = (List<HashMap<String, String>>) documentSnapshot.get("NoteList");
-                //Log.d("notemodel", "notemodel" + noteModelMap.get(0).get("id"));
-
-                for (int i = 0; i<noteModelMap.size();i++){
-                    //Log.d("notemodelsMap", "notemodelsMap: " + noteModelMap.get(i).get("note_data"));
-                    noteModels.add(new NoteModel(noteModelMap.get(i).get("id"), noteModelMap.get(i).get("note_data"), noteModelMap.get(i).get("created_at")));
-                    //Log.d("notemodel", "notemodel" + noteModels.size());
-                }
-                NoteAdaptor noteAdaptor = new NoteAdaptor(noteModels, MainActivity.this);
-                noteList.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-                noteList.setAdapter(noteAdaptor);
             }
         });
-
         /*
         RecyclerView noteList = findViewById(R.id.rv_notes);
         noteModels.add(new NoteModel("1", "Dummy data 1", "July 24,2021"));
@@ -221,6 +209,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent regIntent = new Intent (MainActivity.this, AddNoteActivity.class);
+                regIntent.putExtra("id", "null");
+                //regIntent.putExtra("note_texts", "null");
+                regIntent.putExtra("create_time", "null");
                 startActivity(regIntent);
             }
         });
@@ -281,6 +272,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         this.rvFriends.setVisibility(View.GONE);
     }
 
+    public  void onResume() {
+        super.onResume();
+        viewNotes();
+    }
+
+    public void viewNotes(){
+
+        RecyclerView noteList = findViewById(R.id.rv_notes);
+        DocumentReference documentReference = fStore.collection("users").document(userId);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                List<HashMap<String, String>> noteModelMap = (List<HashMap<String, String>>) documentSnapshot.get("NoteList");
+                //Log.d("notemodel", "notemodel" + noteModelMap.get(0).get("id"));
+                noteModels.clear();
+                for (int i = 0; i<noteModelMap.size();i++){
+                    //Log.d("notemodelsMap", "notemodelsMap: " + noteModelMap.get(i).get("note_data"));
+                    noteModels.add(new NoteModel(noteModelMap.get(i).get("id"), noteModelMap.get(i).get("note_data"), noteModelMap.get(i).get("created_at")));
+                    //Log.d("notemodel", "notemodel" + noteModels.size());
+                }
+                NoteAdaptor noteAdaptor = new NoteAdaptor(noteModels, MainActivity.this);
+                noteList.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                noteList.setAdapter(noteAdaptor);
+            }
+        });
+    }
     @Override
     public void onClickItem(NoteModel noteModel) {
         Intent intent = new Intent(MainActivity.this, AddNoteActivity.class);
@@ -289,4 +306,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         intent.putExtra("create_time", noteModel.getCreated_at());
         startActivity(intent);
     }
+
+
+
 }
