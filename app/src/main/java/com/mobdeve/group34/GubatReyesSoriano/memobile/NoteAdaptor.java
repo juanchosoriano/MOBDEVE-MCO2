@@ -1,5 +1,6 @@
 package com.mobdeve.group34.GubatReyesSoriano.memobile;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +45,7 @@ public class NoteAdaptor extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         NoteViewHolder noteViewHolder = (NoteViewHolder) holder;
         noteViewHolder.noteText.setText(noteModelList.get(position).getNote_data());
         noteViewHolder.create_time.setText(noteModelList.get(position).getCreated_at());

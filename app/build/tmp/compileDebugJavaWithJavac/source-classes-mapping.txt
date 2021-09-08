@@ -22,14 +22,8 @@ com/mobdeve/group34/GubatReyesSoriano/memobile/LoginActivity.java
  com.mobdeve.group34.GubatReyesSoriano.memobile.LoginActivity$1
  com.mobdeve.group34.GubatReyesSoriano.memobile.LoginActivity$2
  com.mobdeve.group34.GubatReyesSoriano.memobile.LoginActivity$3
-com/mobdeve/group34/GubatReyesSoriano/memobile/MainActivity.java
- com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity
- com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity$1
- com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity$2
- com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity$3
- com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity$4
- com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity$5
- com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity$6
+com/mobdeve/group34/GubatReyesSoriano/memobile/NoteModel.java
+ com.mobdeve.group34.GubatReyesSoriano.memobile.NoteModel
 com/mobdeve/group34/GubatReyesSoriano/memobile/ViewFriendsActivity.java
  com.mobdeve.group34.GubatReyesSoriano.memobile.ViewFriendsActivity
 com/mobdeve/group34/GubatReyesSoriano/memobile/Constants.java
@@ -52,5 +46,11 @@ com/mobdeve/group34/GubatReyesSoriano/memobile/NoteAdaptor.java
  com.mobdeve.group34.GubatReyesSoriano.memobile.NoteAdaptor
  com.mobdeve.group34.GubatReyesSoriano.memobile.NoteAdaptor$1
  com.mobdeve.group34.GubatReyesSoriano.memobile.NoteAdaptor$NoteViewHolder
-com/mobdeve/group34/GubatReyesSoriano/memobile/NoteModel.java
- com.mobdeve.group34.GubatReyesSoriano.memobile.NoteModel
+com/mobdeve/group34/GubatReyesSoriano/memobile/MainActivity.java
+ com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity
+ com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity$1
+ com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity$2
+ com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity$3
+ com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity$4
+ com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity$5
+ com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity$6
