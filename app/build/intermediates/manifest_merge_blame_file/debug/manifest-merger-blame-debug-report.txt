@@ -1,0 +1,309 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.mobdeve.group34.GubatReyesSoriano.memobile"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:5-67
+11-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
+12-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:22-76
+13    <uses-permission android:name="android.permission.WAKE_LOCK" />
+13-->[com.google.android.gms:play-services-measurement-api:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\feaade1a728008bc2075a730969adb4f\transformed\jetified-play-services-measurement-api-19.0.1\AndroidManifest.xml:24:5-68
+13-->[com.google.android.gms:play-services-measurement-api:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\feaade1a728008bc2075a730969adb4f\transformed\jetified-play-services-measurement-api-19.0.1\AndroidManifest.xml:24:22-65
+14    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+14-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:26:5-110
+14-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:26:22-107
+15
+16    <application
+16-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:5:5-54:19
+17        android:allowBackup="true"
+17-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:6:9-35
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.6.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\ce848584fb26f0d6d29651cd53c575e3\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+19        android:debuggable="true"
+20        android:extractNativeLibs="false"
+21        android:icon="@mipmap/ic_launcher"
+21-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:7:9-43
+22        android:label="@string/app_name"
+22-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:8:9-41
+23        android:roundIcon="@mipmap/ic_launcher_round"
+23-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:9:9-54
+24        android:supportsRtl="true"
+24-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:10:9-35
+25        android:testOnly="true"
+26        android:theme="@style/Theme.Memobile"
+26-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:11:9-46
+27        android:usesCleartextTraffic="true" >
+27-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:12:9-44
+28        <activity
+28-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:13:9-17:75
+29            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity"
+29-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:14:13-87
+30            android:exported="true"
+30-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:15:13-36
+31            android:label=""
+31-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:16:13-29
+32            android:theme="@style/Theme.AppCompat.NoActionBar" />
+32-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:17:13-63
+33        <activity
+33-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:18:9-20:75
+34            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.RegisterActivity"
+34-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:19:13-91
+35            android:theme="@style/Theme.AppCompat.NoActionBar" />
+35-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:20:13-63
+36        <activity
+36-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:21:9-31:20
+37            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.LoginActivity"
+37-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:22:13-88
+38            android:theme="@style/Theme.AppCompat.NoActionBar" >
+38-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:23:13-63
+39
+40            <!-- App is set to always launch on login screen for the demo. -->
+41            <intent-filter>
+41-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:26:13-30:29
+42                <action android:name="android.intent.action.MAIN" />
+42-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:27:17-69
+42-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:27:25-66
+43
+44                <category android:name="android.intent.category.LAUNCHER" />
+44-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:29:17-77
+44-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:29:27-74
+45            </intent-filter>
+46        </activity>
+47        <activity
+47-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:32:9-34:75
+48            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.AddNoteActivity"
+48-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:33:13-90
+49            android:theme="@style/Theme.AppCompat.NoActionBar" />
+49-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:34:13-63
+50        <activity
+50-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:35:9-37:75
+51            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.AddItemActivity"
+51-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:36:13-90
+52            android:theme="@style/Theme.AppCompat.NoActionBar" />
+52-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:37:13-63
+53        <activity
+53-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:38:9-40:75
+54            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.AddEventActivity"
+54-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:39:13-91
+55            android:theme="@style/Theme.AppCompat.NoActionBar" />
+55-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:40:13-63
+56        <activity
+56-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:41:9-43:75
+57            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.AddFriendsActivity"
+57-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:42:13-93
+58            android:theme="@style/Theme.AppCompat.NoActionBar" />
+58-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:43:13-63
+59        <activity
+59-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:44:9-46:75
+60            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.SettingsActivity"
+60-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:45:13-91
+61            android:theme="@style/Theme.AppCompat.NoActionBar" />
+61-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:46:13-63
+62        <activity
+62-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:47:9-49:75
+63            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.ViewFriendsActivity"
+63-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:48:13-94
+64            android:theme="@style/Theme.AppCompat.NoActionBar" />
+64-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:49:13-63
+65
+66        <meta-data
+66-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:51:9-53:57
+67            android:name="preloaded_fonts"
+67-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:52:13-43
+68            android:resource="@array/preloaded_fonts" />
+68-->D:\COLLEGE\MOBDEVE\PROJECTS\GITHUB\MOBDEVE-MCO1\app\src\main\AndroidManifest.xml:53:13-54
+69
+70        <activity
+70-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:27:9-44:20
+71            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+71-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:28:13-80
+72            android:excludeFromRecents="true"
+72-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:29:13-46
+73            android:exported="true"
+73-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:30:13-36
+74            android:launchMode="singleTask"
+74-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:31:13-44
+75            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+75-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:32:13-72
+76            <intent-filter>
+76-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:33:13-43:29
+77                <action android:name="android.intent.action.VIEW" />
+77-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:17-69
+77-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:25-66
+78
+79                <category android:name="android.intent.category.DEFAULT" />
+79-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:17-76
+79-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:27-73
+80                <category android:name="android.intent.category.BROWSABLE" />
+80-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:17-78
+80-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:27-75
+81
+82                <data
+82-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:39:17-42:51
+83                    android:host="firebase.auth"
+83-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:40:21-49
+84                    android:path="/"
+84-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:41:21-37
+85                    android:scheme="genericidp" />
+85-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:42:21-48
+86            </intent-filter>
+87        </activity>
+88        <activity
+88-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:45:9-62:20
+89            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+89-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:46:13-79
+90            android:excludeFromRecents="true"
+90-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:47:13-46
+91            android:exported="true"
+91-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:48:13-36
+92            android:launchMode="singleTask"
+92-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:49:13-44
+93            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+93-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:50:13-72
+94            <intent-filter>
+94-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:51:13-61:29
+95                <action android:name="android.intent.action.VIEW" />
+95-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:17-69
+95-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:25-66
+96
+97                <category android:name="android.intent.category.DEFAULT" />
+97-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:17-76
+97-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:27-73
+98                <category android:name="android.intent.category.BROWSABLE" />
+98-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:17-78
+98-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:27-75
+99
+100                <data
+100-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:39:17-42:51
+101                    android:host="firebase.auth"
+101-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:40:21-49
+102                    android:path="/"
+102-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:41:21-37
+103                    android:scheme="recaptcha" />
+103-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:42:21-48
+104            </intent-filter>
+105        </activity>
+106
+107        <service
+107-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:64:9-73:19
+108            android:name="com.google.firebase.auth.api.fallback.service.FirebaseAuthFallbackService"
+108-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:65:13-101
+109            android:enabled="true"
+109-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:66:13-35
+110            android:exported="false" >
+110-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:67:13-37
+111            <intent-filter>
+111-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:68:13-72:29
+112                <action android:name="com.google.firebase.auth.api.gms.service.START" />
+112-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:69:17-89
+112-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:69:25-86
+113
+114                <category android:name="android.intent.category.DEFAULT" />
+114-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:17-76
+114-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:27-73
+115            </intent-filter>
+116        </service>
+117        <service
+117-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:74:9-80:19
+118            android:name="com.google.firebase.components.ComponentDiscoveryService"
+118-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:75:13-84
+119            android:directBootAware="true"
+119-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\ed8893f1a326696110e4d10af8917bc2\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
+120            android:exported="false" >
+120-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:76:13-37
+121            <meta-data
+121-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:77:13-79:85
+122                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+122-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:78:17-109
+123                android:value="com.google.firebase.components.ComponentRegistrar" />
+123-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\99e33d49eb6cb3c8d9236007e84fbe53\transformed\jetified-firebase-auth-21.0.1\AndroidManifest.xml:79:17-82
+124            <meta-data
+124-->[com.google.firebase:firebase-firestore:23.0.3] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\102caa0d94ccbe26b4cedde9ed1ba31c\transformed\jetified-firebase-firestore-23.0.3\AndroidManifest.xml:20:13-22:85
+125                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+125-->[com.google.firebase:firebase-firestore:23.0.3] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\102caa0d94ccbe26b4cedde9ed1ba31c\transformed\jetified-firebase-firestore-23.0.3\AndroidManifest.xml:21:17-111
+126                android:value="com.google.firebase.components.ComponentRegistrar" />
+126-->[com.google.firebase:firebase-firestore:23.0.3] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\102caa0d94ccbe26b4cedde9ed1ba31c\transformed\jetified-firebase-firestore-23.0.3\AndroidManifest.xml:22:17-82
+127            <meta-data
+127-->[com.google.android.gms:play-services-measurement-api:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\feaade1a728008bc2075a730969adb4f\transformed\jetified-play-services-measurement-api-19.0.1\AndroidManifest.xml:30:13-32:85
+128                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+128-->[com.google.android.gms:play-services-measurement-api:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\feaade1a728008bc2075a730969adb4f\transformed\jetified-play-services-measurement-api-19.0.1\AndroidManifest.xml:31:17-139
+129                android:value="com.google.firebase.components.ComponentRegistrar" />
+129-->[com.google.android.gms:play-services-measurement-api:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\feaade1a728008bc2075a730969adb4f\transformed\jetified-play-services-measurement-api-19.0.1\AndroidManifest.xml:32:17-82
+130            <meta-data
+130-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\18c0e629690351d48432cfb385b45491\transformed\jetified-firebase-installations-17.0.0\AndroidManifest.xml:18:13-20:85
+131                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+131-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\18c0e629690351d48432cfb385b45491\transformed\jetified-firebase-installations-17.0.0\AndroidManifest.xml:19:17-127
+132                android:value="com.google.firebase.components.ComponentRegistrar" />
+132-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\18c0e629690351d48432cfb385b45491\transformed\jetified-firebase-installations-17.0.0\AndroidManifest.xml:20:17-82
+133        </service>
+134
+135        <provider
+135-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\ed8893f1a326696110e4d10af8917bc2\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:26:9-31:39
+136            android:name="com.google.firebase.provider.FirebaseInitProvider"
+136-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\ed8893f1a326696110e4d10af8917bc2\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:27:13-77
+137            android:authorities="com.mobdeve.group34.GubatReyesSoriano.memobile.firebaseinitprovider"
+137-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\ed8893f1a326696110e4d10af8917bc2\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:28:13-72
+138            android:directBootAware="true"
+138-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\ed8893f1a326696110e4d10af8917bc2\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:29:13-43
+139            android:exported="false"
+139-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\ed8893f1a326696110e4d10af8917bc2\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:30:13-37
+140            android:initOrder="100" />
+140-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\ed8893f1a326696110e4d10af8917bc2\transformed\jetified-firebase-common-20.0.0\AndroidManifest.xml:31:13-36
+141
+142        <activity
+142-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\b5289ac9a641f59dd763ec5754e962f8\transformed\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+143            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+143-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\b5289ac9a641f59dd763ec5754e962f8\transformed\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+144            android:exported="false"
+144-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\b5289ac9a641f59dd763ec5754e962f8\transformed\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+145            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+145-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\b5289ac9a641f59dd763ec5754e962f8\transformed\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+146
+147        <receiver
+147-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:29:9-33:20
+148            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+148-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:30:13-85
+149            android:enabled="true"
+149-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:31:13-35
+150            android:exported="false" >
+150-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:32:13-37
+151        </receiver>
+152
+153        <service
+153-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:35:9-38:40
+154            android:name="com.google.android.gms.measurement.AppMeasurementService"
+154-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:36:13-84
+155            android:enabled="true"
+155-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:37:13-35
+156            android:exported="false" />
+156-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:38:13-37
+157        <service
+157-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:39:9-43:72
+158            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+158-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:40:13-87
+159            android:enabled="true"
+159-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:41:13-35
+160            android:exported="false"
+160-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:42:13-37
+161            android:permission="android.permission.BIND_JOB_SERVICE" />
+161-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\1d4c5290a3226b8c0a572f3caab4a1f7\transformed\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:43:13-69
+162
+163        <meta-data
+163-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\dd899772f6be5434b73cf178284bcfa8\transformed\jetified-play-services-basement-17.1.0\AndroidManifest.xml:23:9-25:69
+164            android:name="com.google.android.gms.version"
+164-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\dd899772f6be5434b73cf178284bcfa8\transformed\jetified-play-services-basement-17.1.0\AndroidManifest.xml:24:13-58
+165            android:value="@integer/google_play_services_version" />
+165-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\Nyte (Reyes)\.gradle\caches\transforms-3\dd899772f6be5434b73cf178284bcfa8\transformed\jetified-play-services-basement-17.1.0\AndroidManifest.xml:25:13-66
+166    </application>
+167
+168</manifest>
