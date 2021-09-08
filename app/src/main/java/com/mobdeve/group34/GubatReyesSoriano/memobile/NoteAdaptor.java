@@ -1,6 +1,5 @@
-package com.mobdeve.s11.soriano.juancho.mco2memobile;
+package com.mobdeve.group34.GubatReyesSoriano.memobile;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

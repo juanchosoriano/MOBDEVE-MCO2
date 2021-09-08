@@ -1,4 +1,4 @@
-package com.mobdeve.s11.soriano.juancho.mco2memobile;
+package com.mobdeve.group34.GubatReyesSoriano.memobile;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

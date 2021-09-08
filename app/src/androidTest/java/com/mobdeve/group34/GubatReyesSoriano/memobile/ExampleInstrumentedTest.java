@@ -1,4 +1,4 @@
-package com.mobdeve.s11.soriano.juancho.mco2memobile;
+package com.mobdeve.group34.GubatReyesSoriano.memobile;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.mobdeve.s11.soriano.juancho.mco2memobile", appContext.getPackageName());
+        assertEquals("com.mobdeve.group34.GubatReyesSoriano.memobile", appContext.getPackageName());
     }
 }

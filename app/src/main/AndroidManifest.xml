@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mobdeve.s11.soriano.juancho.mco2memobile">
+    package="com.mobdeve.group34.GubatReyesSoriano.memobile">
 
     <application
         android:allowBackup="true"
@@ -11,15 +11,15 @@
         android:theme="@style/Theme.Memobile"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainActivity"
+            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.MainActivity"
             android:exported="true"
             android:label=""
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.RegisterActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
-            android:name=".LoginActivity"
+            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
             <!-- App is set to always launch on login screen for the demo. -->
@@ -30,22 +30,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddNoteActivity"
+            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.AddNoteActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
-            android:name=".AddItemActivity"
+            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.AddItemActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
-            android:name=".AddEventActivity"
+            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.AddEventActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
-            android:name=".AddFriendsActivity"
+            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.AddFriendsActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.SettingsActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
-            android:name=".ViewFriendsActivity"
+            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.ViewFriendsActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
 
         <meta-data
