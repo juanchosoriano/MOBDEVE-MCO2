@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddItemActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_toolbarlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkgunmetal"
+        android:elevation="0dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_postitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:visibility="visible"
+        app:backgroundTint="#00221F1F"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarlist"
+        app:layout_constraintEnd_toEndOf="@+id/tb_toolbarlist"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/post"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_delitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:visibility="visible"
+        app:backgroundTint="#00221F1F"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarlist"
+        app:layout_constraintEnd_toStartOf="@+id/fab_color"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/fab_backlist"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/delete"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:visibility="visible"
+        app:backgroundTint="#00221F1F"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarlist"
+        app:layout_constraintEnd_toStartOf="@+id/fab_postitem"
+        app:layout_constraintTop_toTopOf="@+id/tb_toolbarlist"
+        app:srcCompat="@drawable/changecolor"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_backlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:visibility="visible"
+        app:backgroundTint="#00221F1F"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarlist"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cancel"
+        app:tint="#A35522" />
+
+    <EditText
+        android:id="@+id/et_listinput"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:fontFamily="@font/archivo_narrow"
+        android:gravity="start|top"
+        android:hint="Write details of your list item here!"
+        android:inputType="textMultiLine"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/lightgrey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_toolbarlist" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".RegisterActivity">
+
+    <EditText
+        android:id="@+id/pw_confpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:fontFamily="@font/archivo_narrow"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/pw_regpass"
+        app:layout_constraintTop_toTopOf="@+id/pw_regpass" />
+
+    <TextView
+        android:id="@+id/tv_confpasslabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/advent_pro_bold"
+        android:text="CONFIRM PASSWORD"
+        android:textColor="#221F1F"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/pw_confpass"
+        app:layout_constraintTop_toBottomOf="@+id/pw_confpass" />
+
+    <EditText
+        android:id="@+id/pt_firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="140dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:fontFamily="@font/archivo_narrow"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/gl_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/pt_lastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="140dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:fontFamily="@font/archivo_narrow"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/pt_firstname"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/pt_initials"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="140dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:fontFamily="@font/archivo_narrow"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/gl_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/pt_lastname"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <TextView
+        android:id="@+id/tv_fnlabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/advent_pro_bold"
+        android:text="FIRST NAME"
+        android:textColor="#221F1F"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/pt_firstname"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pt_firstname"
+        app:layout_constraintTop_toBottomOf="@+id/pt_firstname" />
+
+    <TextView
+        android:id="@+id/tv_datelabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/advent_pro_bold"
+        android:text="DATE OF BIRTH"
+        android:textColor="#221F1F"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/d_birthdate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/d_birthdate"
+        app:layout_constraintTop_toBottomOf="@+id/d_birthdate" />
+
+    <EditText
+        android:id="@+id/pw_regpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:fontFamily="@font/archivo_narrow"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/gl_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_datelabel" />
+
+    <TextView
+        android:id="@+id/tv_regpasslabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/advent_pro_bold"
+        android:text="PASSWORD"
+        android:textColor="#221F1F"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/pw_regpass"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pw_regpass"
+        app:layout_constraintTop_toBottomOf="@+id/pw_regpass" />
+
+    <TextView
+        android:id="@+id/tv_regmaillabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/advent_pro_bold"
+        android:text="EMAIL"
+        android:textColor="#221F1F"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/em_regmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/em_regmail"
+        app:layout_constraintTop_toBottomOf="@+id/em_regmail" />
+
+    <TextView
+        android:id="@+id/tv_lnlabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/advent_pro_bold"
+        android:text="LAST NAME"
+        android:textColor="#221F1F"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/pt_lastname"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pt_lastname"
+        app:layout_constraintTop_toBottomOf="@+id/pt_lastname" />
+
+    <TextView
+        android:id="@+id/tv_initlabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/advent_pro_bold"
+        android:text="M.I."
+        android:textColor="#221F1F"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/pt_initials"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pt_initials"
+        app:layout_constraintTop_toBottomOf="@+id/pt_initials" />
+
+    <EditText
+        android:id="@+id/d_birthdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:fontFamily="@font/archivo_narrow"
+        android:inputType="date"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/gl_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fnlabel" />
+
+    <EditText
+        android:id="@+id/em_regmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:fontFamily="@font/archivo_narrow"
+        android:inputType="textEmailAddress"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/d_birthdate"
+        app:layout_constraintTop_toTopOf="@+id/d_birthdate" />
+
+    <TextView
+        android:id="@+id/tv_reglabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/advent_pro_bold"
+        android:text="REGISTER"
+        android:textColor="#000000"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toStartOf="@+id/gl_right"
+        app:layout_constraintStart_toStartOf="@+id/gl_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/archivo_narrow"
+        android:text="Join us and enjoy access to several perks!"
+        android:textColor="#221F1F"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/pt_lastname"
+        app:layout_constraintEnd_toStartOf="@+id/gl_right"
+        app:layout_constraintStart_toStartOf="@+id/gl_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reglabel"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_createacc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/rounded_button_2"
+        android:fontFamily="@font/advent_pro_bold"
+        android:text="Register"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/gl_right"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/gl_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_regpasslabel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
