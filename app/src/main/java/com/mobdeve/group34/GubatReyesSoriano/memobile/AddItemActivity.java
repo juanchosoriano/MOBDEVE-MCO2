@@ -34,7 +34,7 @@ public class AddItemActivity extends AppCompatActivity {
         setContentView(R.layout.add_item_activity);
         this.itemId = getIntent().getStringExtra("todo_id");
         this.itemText = getIntent().getStringExtra("todo_item");
-        //this.checked = getIntent().getBooleanExtra("checked", false);
+        this.checked = getIntent().getBooleanExtra("checked", false);
         this.fAuth = FirebaseAuth.getInstance();
         this.fStore = FirebaseFirestore.getInstance();
         this.userId = fAuth.getCurrentUser().getUid();
@@ -97,9 +97,9 @@ public class AddItemActivity extends AppCompatActivity {
             documentReference.update("ItemList", FieldValue.arrayUnion(newItem));
         }
         else if(!item.equals("") && !item.equals(itemText)){
-            TodoModel oldItem = new TodoModel(itemId, itemText, false);
+            TodoModel oldItem = new TodoModel(itemId, itemText, checked);
             documentReference.update("ItemList", FieldValue.arrayRemove(oldItem));
-            TodoModel newItem = new TodoModel(itemId, item);
+            TodoModel newItem = new TodoModel(itemId, item, false);
             documentReference.update("ItemList", FieldValue.arrayUnion(newItem));
         }
 

@@ -8,12 +8,13 @@ public class TodoModel {
     public TodoModel(String id, String text) {
         this.id = id;
         this.todo_text = text;
+        this.checked = false;
     }
 
-    public TodoModel(String id, String text, boolean chekced) {
+    public TodoModel(String id, String text, boolean checked) {
         this.id = id;
         this.todo_text = text;
-        this.checked = chekced;
+        this.checked = checked;
     }
 
     public String getId() {

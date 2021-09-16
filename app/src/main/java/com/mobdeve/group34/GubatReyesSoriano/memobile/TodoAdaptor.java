@@ -1,5 +1,6 @@
 package com.mobdeve.group34.GubatReyesSoriano.memobile;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,8 @@ public class TodoAdaptor extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, int position) {
         TodoViewHolder todoViewHolder = (TodoViewHolder) holder;
         todoViewHolder.checkBox.setText(todoModelList.get(position).getTodo_Text());
+        Log.d("ITEMCHECKED", ""+ todoModelList.get(position).isChecked());
+        todoViewHolder.checkBox.setChecked(todoModelList.get(position).isChecked());
         todoViewHolder.todoLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -315,9 +315,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 List<HashMap<String, String>> todoModelMap = (List<HashMap<String, String>>) documentSnapshot.get("ItemList");
-
+                List<HashMap<String, Boolean>> todoModelMap_c = (List<HashMap<String, Boolean>>) documentSnapshot.get("ItemList");
 //                //Log.d("notemodel", "notemodel" + noteModelMap.get(0).get("id"));
                 todoModels.clear();
+                boolean check_value = true;
                 if(todoModelMap != null){
                     for (int i = 0; i<todoModelMap.size();i++){
 
@@ -325,7 +326,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                            todoModels.add(new TodoModel(todoModelMap.get(i).get("id"), todoModelMap.get(i).get("todo_Text")));
 //                        }
 //                        else{
-                        todoModels.add(new TodoModel(todoModelMap.get(i).get("id"), todoModelMap.get(i).get("todo_Text")));
+
+                        todoModels.add(new TodoModel(todoModelMap.get(i).get("id"), todoModelMap.get(i).get("todo_Text"), todoModelMap_c.get(i).get("checked")));
 //                        }
 
                         //Log.d("notemodelsMap", "notemodelsMap: " + noteModelMap.get(i).get("note_data"));
@@ -333,6 +335,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         //Log.d("notemodel", "notemodel" + noteModels.size());
                     }
                 }
+
+                
 
                 //todoModels.add(new TodoModel("123", "Testing"));
                 TodoAdaptor todoAdaptor = new TodoAdaptor(todoModels, MainActivity.this);
@@ -358,7 +362,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent intent = new Intent(MainActivity.this, AddItemActivity.class);
         intent.putExtra("todo_id", todoModel.getId());
         intent.putExtra("todo_item", todoModel.getTodo_Text());
-        //intent.putExtra("checked", todoModel.isChecked());
+        intent.putExtra("checked", todoModel.isChecked());
         startActivity(intent);
     }
 
@@ -366,28 +370,57 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
+        CheckBox checkBox = ((CheckBox) view);
         boolean checked = ((CheckBox) view).isChecked();
         DocumentReference documentReference = fStore.collection("users").document(userId);
+        String cb_message = checkBox.getText().toString();
 
-        // Check which checkbox was clicked
-        switch(view.getId()) {
-            case R.id.cb_item:
+        for(int i = 0; i < todoModels.size(); i++){
+            if(cb_message.equals(todoModels.get(i).getTodo_Text())){
+                TodoModel todo_item = todoModels.get(i);
                 if (checked){
                     Log.d("ONCHECK", view.getId() + "");
-                   // Log.d("GETSTRING", view.get)
-                      //TodoModel oldItem = new TodoModel(view.getId());
+                    todo_item.setChecked(true);
+
+                    // Log.d("GETSTRING", view.get)
+                    //TodoModel oldItem = new TodoModel(view.getId());
 //                    documentReference.update("ItemList", FieldValue.arrayRemove(oldItem));
 //                    TodoModel newItem = new TodoModel(itemId, item, checked);
 //                    documentReference.update("ItemList", FieldValue.arrayUnion(newItem));
                 }
-            else {
+                else {
+                    todo_item.setChecked(false);
 //                    TodoModel oldItem = new TodoModel(itemId, itemText, checked);
 //                    documentReference.update("ItemList", FieldValue.arrayRemove(oldItem));
 //                    TodoModel newItem = new TodoModel(itemId, item, checked);
 //                    documentReference.update("ItemList", FieldValue.arrayUnion(newItem));
                 }
                 break;
+            }
         }
+        //DocumentReference documentReference = fStore.collection("users").document(userId);
+//
+        documentReference.update("ItemList", todoModels);
+//        // Check which checkbox was clicked
+//        switch(view.getId()) {
+//            case R.id.cb_item:
+//                if (checked){
+//                    Log.d("ONCHECK", view.getId() + "");
+//
+//                   // Log.d("GETSTRING", view.get)
+//                      //TodoModel oldItem = new TodoModel(view.getId());
+////                    documentReference.update("ItemList", FieldValue.arrayRemove(oldItem));
+////                    TodoModel newItem = new TodoModel(itemId, item, checked);
+////                    documentReference.update("ItemList", FieldValue.arrayUnion(newItem));
+//                }
+//            else {
+////                    TodoModel oldItem = new TodoModel(itemId, itemText, checked);
+////                    documentReference.update("ItemList", FieldValue.arrayRemove(oldItem));
+////                    TodoModel newItem = new TodoModel(itemId, item, checked);
+////                    documentReference.update("ItemList", FieldValue.arrayUnion(newItem));
+//                }
+//                break;
+//        }
     }
 //    @Override
 //    public void onPause() {
