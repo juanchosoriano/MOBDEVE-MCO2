@@ -16,7 +16,7 @@
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/layout_bg"
-        android:backgroundTint="#F6CDB1"
+        android:backgroundTint="#98D587"
         android:foregroundTint="#292929">
 
         <CheckBox

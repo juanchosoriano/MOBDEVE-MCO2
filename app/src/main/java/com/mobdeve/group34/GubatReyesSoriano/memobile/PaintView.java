@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,11 +18,12 @@ public class PaintView extends View {
     private Path path = new Path();
     private Paint brush = new Paint();
 
-    public PaintView(Context context) {
-        super(context);
+    public PaintView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        //v.setBackgroundColor(0xFF00FF00);
 //        View v = new View(context);
 //        v.setBackgroundColor(Color.TRANSPARENT);
-//        this.setBackgroundColor(Color.TRANSPARENT);
+       this.setBackgroundColor(Color.TRANSPARENT);
         brush.setAntiAlias(true);
         brush.setColor(Color.YELLOW);
         brush.setStyle(Paint.Style.STROKE);

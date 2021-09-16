@@ -59,6 +59,7 @@ public class AddNoteActivity extends AppCompatActivity {
     String noteImg;
     private Uri mImageUri;
     ImageView imgView;
+    PaintView myCanvas;
     private ActivityResultLauncher<Intent> myActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -95,7 +96,8 @@ public class AddNoteActivity extends AppCompatActivity {
         this.fAuth = FirebaseAuth.getInstance();
         this.fStore = FirebaseFirestore.getInstance();
         this.userId = fAuth.getCurrentUser().getUid();
-
+        this.myCanvas = findViewById(R.id.pv_note);
+        myCanvas.setVisibility(View.GONE);
         EditText note_data = findViewById(R.id.et_noteinput);
         note_data.setText(noteText);
 
@@ -146,6 +148,15 @@ public class AddNoteActivity extends AppCompatActivity {
         this.fabDraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(myCanvas.getVisibility() == View.VISIBLE){
+                    myCanvas.setVisibility(View.GONE);
+                }
+                else {
+                    myCanvas.setVisibility(View.VISIBLE);
+                }
+
+                //myCanvas = new PaintView(AddNoteActivity.this, null);
+                //setContentView(myCanvas);
 
             }
         });

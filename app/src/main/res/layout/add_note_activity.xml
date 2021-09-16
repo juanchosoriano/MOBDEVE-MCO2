@@ -125,5 +125,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <com.mobdeve.group34.GubatReyesSoriano.memobile.PaintView
+        android:id="@+id/pv_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_toolbarevent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
