@@ -1,5 +1,6 @@
 package com.mobdeve.group34.GubatReyesSoriano.memobile;
 
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
@@ -31,11 +33,13 @@ public class TodoAdaptor extends RecyclerView.Adapter {
         public CheckBox checkBox;
         public LinearLayout todoLayout;
         ItemClickListener itemClickListener;
+        public ConstraintLayout cl_todo;
 
         public TodoViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             checkBox = itemView.findViewById(R.id.cb_item);
             todoLayout = itemView.findViewById(R.id.ll_todo);
+            cl_todo = itemView.findViewById(R.id.cl_todo);
         }
         public void setItemClickListener(ItemClickListener ic)
         {
@@ -65,6 +69,19 @@ public class TodoAdaptor extends RecyclerView.Adapter {
         todoViewHolder.checkBox.setText(todoModelList.get(position).getTodo_Text());
         Log.d("ITEMCHECKED", ""+ todoModelList.get(position).isChecked());
         todoViewHolder.checkBox.setChecked(todoModelList.get(position).isChecked());
+        int priority_color = todoModelList.get(position).getPriority();
+        Log.d("PRIOR_C", ""+priority_color);
+        if(priority_color == 1){
+            Log.d("color", "in prior 1");
+            todoViewHolder.cl_todo.getBackground().setTint(Color.argb(100, 227, 130, 130));
+        } else if (priority_color == 2){
+            todoViewHolder.cl_todo.getBackground().setTint(Color.argb(100, 237, 216, 149));
+
+        } else {
+            todoViewHolder.cl_todo.getBackground().setTint(Color.argb(100, 152, 213, 135));
+
+        }
+
         todoViewHolder.todoLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

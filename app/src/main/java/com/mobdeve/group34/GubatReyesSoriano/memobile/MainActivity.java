@@ -31,6 +31,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -316,9 +318,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 List<HashMap<String, String>> todoModelMap = (List<HashMap<String, String>>) documentSnapshot.get("ItemList");
                 List<HashMap<String, Boolean>> todoModelMap_c = (List<HashMap<String, Boolean>>) documentSnapshot.get("ItemList");
+                List<HashMap<String, Long>> todoModelMap_p = (List<HashMap<String, Long>>) documentSnapshot.get("ItemList");
 //                //Log.d("notemodel", "notemodel" + noteModelMap.get(0).get("id"));
                 todoModels.clear();
                 boolean check_value = true;
+                Log.d("TODO_COUNT", ""+todoModelMap.size());
                 if(todoModelMap != null){
                     for (int i = 0; i<todoModelMap.size();i++){
 
@@ -326,17 +330,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                            todoModels.add(new TodoModel(todoModelMap.get(i).get("id"), todoModelMap.get(i).get("todo_Text")));
 //                        }
 //                        else{
-
-                        todoModels.add(new TodoModel(todoModelMap.get(i).get("id"), todoModelMap.get(i).get("todo_Text"), todoModelMap_c.get(i).get("checked")));
+                        Log.d("PRIOR_VAL", "" + todoModelMap_p.get(i).get("priority").intValue());
+                        todoModels.add(new TodoModel(todoModelMap.get(i).get("id"), todoModelMap.get(i).get("todo_Text"), todoModelMap_c.get(i).get("checked"), todoModelMap_p.get(i).get("priority").intValue()));
 //                        }
 
                         //Log.d("notemodelsMap", "notemodelsMap: " + noteModelMap.get(i).get("note_data"));
 
                         //Log.d("notemodel", "notemodel" + noteModels.size());
                     }
+                    for(int i=0;i<todoModels.size()-1;i++){
+                        int m = i;
+                        for(int j=i+1;j<todoModels.size();j++){
+                            if(todoModels.get(m).getPriority() > todoModels.get(j).getPriority())
+                                m = j;
+                        }
+                        //swapping elements at position i and m
+                        TodoModel temp = todoModels.get(i);
+                        todoModels.set(i, todoModels.get(m));
+                        todoModels.set(m, temp);
+                    }
                 }
 
-                
+
 
                 //todoModels.add(new TodoModel("123", "Testing"));
                 TodoAdaptor todoAdaptor = new TodoAdaptor(todoModels, MainActivity.this);
@@ -363,6 +378,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         intent.putExtra("todo_id", todoModel.getId());
         intent.putExtra("todo_item", todoModel.getTodo_Text());
         intent.putExtra("checked", todoModel.isChecked());
+        intent.putExtra("priority", todoModel.getPriority());
         startActivity(intent);
     }
 

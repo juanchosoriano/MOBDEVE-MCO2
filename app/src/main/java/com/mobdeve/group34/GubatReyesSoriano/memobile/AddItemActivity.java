@@ -28,6 +28,8 @@ public class AddItemActivity extends AppCompatActivity {
     String itemText;
     Boolean checked;
     String userId;
+    int priority;
+    int n_priority;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,8 @@ public class AddItemActivity extends AppCompatActivity {
         this.itemId = getIntent().getStringExtra("todo_id");
         this.itemText = getIntent().getStringExtra("todo_item");
         this.checked = getIntent().getBooleanExtra("checked", false);
+        this.priority = getIntent().getIntExtra("priority", 3);
+        n_priority = priority;
         this.fAuth = FirebaseAuth.getInstance();
         this.fStore = FirebaseFirestore.getInstance();
         this.userId = fAuth.getCurrentUser().getUid();
@@ -84,22 +88,33 @@ public class AddItemActivity extends AppCompatActivity {
         this.fabColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AddItemActivity.this, "Coming soon!", Toast.LENGTH_SHORT).show();
+                if(n_priority == 3){
+                    n_priority = 1;
+                    Toast.makeText(AddItemActivity.this, "Color set to: Urgent Red!", Toast.LENGTH_SHORT).show();
+                } else if (n_priority == 1){
+                    n_priority = 2;
+                    Toast.makeText(AddItemActivity.this, "Color set to: Mild Yellow!", Toast.LENGTH_SHORT).show();
+                } else {
+                    n_priority = 3;
+                    Toast.makeText(AddItemActivity.this, "Color set to: Easy Green!", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
 
     private void saveItem(String item){
         DocumentReference documentReference = fStore.collection("users").document(userId);
+        Log.d("NEW_PRIO", ""+n_priority);
         if(itemId.equals("null") && !item.equals("")){
             String uniqueID = UUID.randomUUID().toString();
-            TodoModel newItem = new TodoModel(uniqueID, item, false);
+            TodoModel newItem = new TodoModel(uniqueID, item, false, n_priority);
             documentReference.update("ItemList", FieldValue.arrayUnion(newItem));
         }
-        else if(!item.equals("") && !item.equals(itemText)){
-            TodoModel oldItem = new TodoModel(itemId, itemText, checked);
+        else if((!item.equals("") && !item.equals(itemText))||priority != n_priority){
+            TodoModel oldItem = new TodoModel(itemId, itemText, checked, priority);
             documentReference.update("ItemList", FieldValue.arrayRemove(oldItem));
-            TodoModel newItem = new TodoModel(itemId, item, false);
+            TodoModel newItem = new TodoModel(itemId, item, false, n_priority);
             documentReference.update("ItemList", FieldValue.arrayUnion(newItem));
         }
 
@@ -107,7 +122,7 @@ public class AddItemActivity extends AppCompatActivity {
 
     private void deleteItem(){
         DocumentReference documentReference = fStore.collection("users").document(userId);
-        TodoModel oldItem = new TodoModel(itemId, itemText);
+        TodoModel oldItem = new TodoModel(itemId, itemText, checked, priority);
         documentReference.update("ItemList", FieldValue.arrayRemove(oldItem));
     }
 
