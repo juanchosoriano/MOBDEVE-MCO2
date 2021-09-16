@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Memobile</string>
-    <string name="open">open</string>
-    <string name="close">close</string>
-    <string name="notes">Your Notes</string>
-    <string name="list">To-Do List</string>
-    <string name="events">Scheduled Events</string>
-</resources>
