@@ -185,23 +185,29 @@ public class AddNoteActivity extends AppCompatActivity {
     private void saveNotes(String note){
         DocumentReference documentReference = fStore.collection("users").document(userId);
         Date date = new Date();
-        if(mImageUri != null && mImageUri.toString() != noteImg){
+        if(mImageUri != null && !mImageUri.toString().equals(noteImg)){
             StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(
                     "images/" + userId + "-" + mImageUri.getLastPathSegment()
             );
 
             storageReference.putFile(mImageUri);
-            noteImg = mImageUri.toString();
+
 
         }
         if(noteId.equals("null") && !note.equals("")){
             String uniqueID = UUID.randomUUID().toString();
+            if(mImageUri != null){
+                noteImg = mImageUri.toString();
+            }
             NoteModel newNote = new NoteModel(uniqueID, note, date.toString(), noteImg);
             documentReference.update("NoteList", FieldValue.arrayUnion(newNote));
         }
-        else if(!note.equals("") && !note.equals(noteText) ){
+        else if((!note.equals("") && !note.equals(noteText)) || mImageUri != null){
             NoteModel oldNote = new NoteModel(noteId, noteText, noteDate, noteImg);
             documentReference.update("NoteList", FieldValue.arrayRemove(oldNote));
+            if(mImageUri != null){
+                noteImg = mImageUri.toString();
+            }
             NoteModel newNote = new NoteModel(noteId, note, date.toString(), noteImg);
             documentReference.update("NoteList", FieldValue.arrayUnion(newNote));
         }
