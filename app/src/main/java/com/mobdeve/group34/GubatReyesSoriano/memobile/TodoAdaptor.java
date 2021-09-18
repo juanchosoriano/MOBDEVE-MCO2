@@ -34,12 +34,14 @@ public class TodoAdaptor extends RecyclerView.Adapter {
         public LinearLayout todoLayout;
         ItemClickListener itemClickListener;
         public ConstraintLayout cl_todo;
+        public TextView tvDate;
 
         public TodoViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             checkBox = itemView.findViewById(R.id.cb_item);
             todoLayout = itemView.findViewById(R.id.ll_todo);
             cl_todo = itemView.findViewById(R.id.cl_todo);
+            tvDate = itemView.findViewById(R.id.tv_todo_date);
         }
         public void setItemClickListener(ItemClickListener ic)
         {
@@ -67,6 +69,7 @@ public class TodoAdaptor extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, int position) {
         TodoViewHolder todoViewHolder = (TodoViewHolder) holder;
         todoViewHolder.checkBox.setText(todoModelList.get(position).getTodo_Text());
+        todoViewHolder.tvDate.setText(todoModelList.get(position).getTodo_date().toString());
         Log.d("ITEMCHECKED", ""+ todoModelList.get(position).isChecked());
         todoViewHolder.checkBox.setChecked(todoModelList.get(position).isChecked());
         int priority_color = todoModelList.get(position).getPriority();
