@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class TodoAdaptor extends RecyclerView.Adapter {
@@ -34,12 +35,14 @@ public class TodoAdaptor extends RecyclerView.Adapter {
         public LinearLayout todoLayout;
         ItemClickListener itemClickListener;
         public ConstraintLayout cl_todo;
+        public TextView tvDate;
 
         public TodoViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             checkBox = itemView.findViewById(R.id.cb_item);
             todoLayout = itemView.findViewById(R.id.ll_todo);
             cl_todo = itemView.findViewById(R.id.cl_todo);
+            tvDate = itemView.findViewById(R.id.tv_todo_date);
         }
         public void setItemClickListener(ItemClickListener ic)
         {
@@ -67,6 +70,8 @@ public class TodoAdaptor extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, int position) {
         TodoViewHolder todoViewHolder = (TodoViewHolder) holder;
         todoViewHolder.checkBox.setText(todoModelList.get(position).getTodo_Text());
+        String schedule_date = new SimpleDateFormat("MMM dd yyyy").format(todoModelList.get(position).getTodo_date());
+        todoViewHolder.tvDate.setText(schedule_date);
         Log.d("ITEMCHECKED", ""+ todoModelList.get(position).isChecked());
         todoViewHolder.checkBox.setChecked(todoModelList.get(position).isChecked());
         int priority_color = todoModelList.get(position).getPriority();

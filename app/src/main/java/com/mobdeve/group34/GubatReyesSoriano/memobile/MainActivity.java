@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,8 +22,11 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -29,10 +34,13 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -55,7 +63,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FloatingActionButton fabNewEvent;
 
     FloatingActionButton fabScheduled;
-    boolean toggleScheduled;
+    boolean toggleScheduled = true;
+
+    private SharedPreferences sp;
+
 
     RecyclerView rvNotes;
     RecyclerView rvTodo;
@@ -246,14 +257,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         this.fabScheduled.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences.Editor spEditor;
+                spEditor = sp.edit();
                 if(!toggleScheduled) {
                     fabScheduled.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.scheduled));
                     toggleScheduled = true;
+
+                    viewTodo();
                     Toast.makeText(MainActivity.this, "To-do list is now SCHEDULED.", Toast.LENGTH_SHORT).show();
+                    spEditor.putBoolean(Keys.SCHEDULED.name(), true);
                 } else if (toggleScheduled) {
                     fabScheduled.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.unscheduled));
                     toggleScheduled = false;
+                    viewTodo();
                     Toast.makeText(MainActivity.this, "To-do list is now UNSCHEDULED.", Toast.LENGTH_SHORT).show();
+                    spEditor.putBoolean(Keys.SCHEDULED.name(), false);
                 }
             }
         });
@@ -283,6 +301,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
         viewNotes();
         viewTodo();
+        viewFriends();
+        this.sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        this.toggleScheduled = sp.getBoolean(Keys.SCHEDULED.name(), true);
     }
 
     public void viewNotes(){
@@ -319,6 +340,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 List<HashMap<String, String>> todoModelMap = (List<HashMap<String, String>>) documentSnapshot.get("ItemList");
                 List<HashMap<String, Boolean>> todoModelMap_c = (List<HashMap<String, Boolean>>) documentSnapshot.get("ItemList");
                 List<HashMap<String, Long>> todoModelMap_p = (List<HashMap<String, Long>>) documentSnapshot.get("ItemList");
+                List<HashMap<String, Timestamp>> todoModelMap_s = (List<HashMap<String, Timestamp>>) documentSnapshot.get("ItemList");
 //                //Log.d("notemodel", "notemodel" + noteModelMap.get(0).get("id"));
                 todoModels.clear();
                 boolean check_value = true;
@@ -330,24 +352,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                            todoModels.add(new TodoModel(todoModelMap.get(i).get("id"), todoModelMap.get(i).get("todo_Text")));
 //                        }
 //                        else{
+                        Date fetched_date = todoModelMap_s.get(i).get("todo_date").toDate();
                         Log.d("PRIOR_VAL", "" + todoModelMap_p.get(i).get("priority").intValue());
-                        todoModels.add(new TodoModel(todoModelMap.get(i).get("id"), todoModelMap.get(i).get("todo_Text"), todoModelMap_c.get(i).get("checked"), todoModelMap_p.get(i).get("priority").intValue()));
+                        todoModels.add(new TodoModel(todoModelMap.get(i).get("id"), todoModelMap.get(i).get("todo_Text"), todoModelMap_c.get(i).get("checked"), todoModelMap_p.get(i).get("priority").intValue(), fetched_date));
 //                        }
 
                         //Log.d("notemodelsMap", "notemodelsMap: " + noteModelMap.get(i).get("note_data"));
 
                         //Log.d("notemodel", "notemodel" + noteModels.size());
                     }
-                    for(int i=0;i<todoModels.size()-1;i++){
-                        int m = i;
-                        for(int j=i+1;j<todoModels.size();j++){
-                            if(todoModels.get(m).getPriority() > todoModels.get(j).getPriority())
-                                m = j;
+                    if(!toggleScheduled){
+                        for (int i = 0; i < todoModels.size() - 1; i++) {
+                            int m = i;
+                            for (int j = i + 1; j < todoModels.size(); j++) {
+                                if (todoModels.get(m).getTodo_date().before(todoModels.get(j).getTodo_date()))
+                                    m = j;
+                            }
+                            //swapping elements at position i and m
+                            TodoModel temp = todoModels.get(i);
+                            todoModels.set(i, todoModels.get(m));
+                            todoModels.set(m, temp);
                         }
-                        //swapping elements at position i and m
-                        TodoModel temp = todoModels.get(i);
-                        todoModels.set(i, todoModels.get(m));
-                        todoModels.set(m, temp);
+                    }else {
+                        for (int i = 0; i < todoModels.size() - 1; i++) {
+                            int m = i;
+                            for (int j = i + 1; j < todoModels.size(); j++) {
+                                if (todoModels.get(m).getPriority() > todoModels.get(j).getPriority())
+                                    m = j;
+                            }
+                            //swapping elements at position i and m
+                            TodoModel temp = todoModels.get(i);
+                            todoModels.set(i, todoModels.get(m));
+                            todoModels.set(m, temp);
+                        }
                     }
                 }
 
@@ -361,6 +398,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
+    public void viewFriends(){
+        List<String> friendId;
+        List<String> friendEmails;
+        List<String> friendNames;
+        friendId = new ArrayList<String>();
+        friendEmails = new ArrayList<String>();
+        friendNames = new ArrayList<String>();
+
+        fStore.collection("friends")
+                .whereEqualTo("User ID", userId)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                        String friendID = document.getString("Friend ID");
+                                String friendEmail = document.getString("Friend Email");
+                                if (!friendEmails.contains(friendEmail))
+                                    friendEmails.add(friendEmail);
+                            }
+                            ViewFriendsRecyclerViewAdapter adapter;
+                            RecyclerView recyclerView = findViewById(R.id.rv_friends);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                            adapter = new ViewFriendsRecyclerViewAdapter(friendEmails);
+                            Log.d("Emails", friendEmails.toString());
+                            recyclerView.setAdapter(adapter);
+                            Toast.makeText(MainActivity.this, friendEmails.toString(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Log.d("Error", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+    }
 
     @Override
     public void onClickItem(NoteModel noteModel) {
@@ -379,6 +451,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         intent.putExtra("todo_item", todoModel.getTodo_Text());
         intent.putExtra("checked", todoModel.isChecked());
         intent.putExtra("priority", todoModel.getPriority());
+        intent.putExtra("todo_date", todoModel.getTodo_date().toString());
         startActivity(intent);
     }
 

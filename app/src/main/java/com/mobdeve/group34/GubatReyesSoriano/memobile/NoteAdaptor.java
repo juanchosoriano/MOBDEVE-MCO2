@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class NoteAdaptor extends RecyclerView.Adapter {
@@ -49,7 +52,14 @@ public class NoteAdaptor extends RecyclerView.Adapter {
         NoteViewHolder noteViewHolder = (NoteViewHolder) holder;
         //Log.d("NOTE_TEXT", noteModelList.get(position).getNote_data());
         noteViewHolder.noteText.setText(noteModelList.get(position).getNote_data());
-        noteViewHolder.create_time.setText(noteModelList.get(position).getCreated_at());
+        String format_date = noteModelList.get(position).getCreated_at();
+        try {
+            Date created_date = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy").parse(noteModelList.get(position).getCreated_at());
+            format_date = new SimpleDateFormat("MMM dd yyyy").format(created_date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        noteViewHolder.create_time.setText(format_date);
         noteViewHolder.noteLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

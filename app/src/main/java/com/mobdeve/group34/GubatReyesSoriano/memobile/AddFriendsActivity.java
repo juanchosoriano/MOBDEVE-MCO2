@@ -31,6 +31,7 @@ public class AddFriendsActivity extends AppCompatActivity {
     FirebaseFirestore fStore;
     String userId;
     public String docuId;
+    public String friendId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class AddFriendsActivity extends AppCompatActivity {
         this.fStore = FirebaseFirestore.getInstance();
         this.userId = fAuth.getCurrentUser().getUid();
         this.EtEmailAdd = findViewById(R.id.et_emailadd);
+        this.friendId = "";
         this.initComponents(this.userId);
     }
 
@@ -66,6 +68,7 @@ public class AddFriendsActivity extends AppCompatActivity {
                         Map<String, Object> friends = new HashMap<>();
                         String userID = userId;
                         friends.put("Friend ID", docuId);
+                        friends.put("Friend Email", friendId);
                         friends.put("User ID", userId);
 
                         fStore.collection("friends")
@@ -88,7 +91,7 @@ public class AddFriendsActivity extends AppCompatActivity {
             }
 
             public void readData(friendCallback myCallback) {
-                String friendId = EtEmailAdd.getText().toString();
+                friendId = EtEmailAdd.getText().toString();
 
                 fStore.collection("users")
                         .whereEqualTo("Email", friendId)

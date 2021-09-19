@@ -1,16 +1,20 @@
 package com.mobdeve.group34.GubatReyesSoriano.memobile;
 
+import java.util.Date;
+
 public class TodoModel {
     private String id;
     private String todo_text;
     private boolean checked;
     private int priority;
+    private Date todo_date;
 
     public TodoModel(String id, String text) {
         this.id = id;
         this.todo_text = text;
         this.checked = false;
         this.priority = 3;
+        this.todo_date = new Date();
     }
 
     public TodoModel(String id, String text, boolean checked) {
@@ -18,6 +22,7 @@ public class TodoModel {
         this.todo_text = text;
         this.checked = checked;
         this.priority = 3;
+        this.todo_date = new Date();
     }
 
     public TodoModel(String id, String text, boolean checked, int priority) {
@@ -25,6 +30,15 @@ public class TodoModel {
         this.todo_text = text;
         this.checked = checked;
         this.priority = priority;
+        this.todo_date = new Date();
+    }
+
+    public TodoModel(String id, String text, boolean checked, int priority, Date date) {
+        this.id = id;
+        this.todo_text = text;
+        this.checked = checked;
+        this.priority = priority;
+        this.todo_date = date;
     }
 
     public int getPriority() {
@@ -59,5 +73,11 @@ public class TodoModel {
         this.checked = checked;
     }
 
+    public Date getTodo_date() {
+        return todo_date;
+    }
 
+    public void setTodo_date(Date todo_date) {
+        this.todo_date = todo_date;
+    }
 }
