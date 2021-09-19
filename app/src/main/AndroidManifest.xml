@@ -44,9 +44,6 @@
         <activity
             android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.SettingsActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity
-            android:name="com.mobdeve.group34.GubatReyesSoriano.memobile.ViewFriendsActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
