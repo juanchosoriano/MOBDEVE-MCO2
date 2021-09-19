@@ -192,7 +192,7 @@ public class AddItemActivity extends AppCompatActivity {
 
     private void deleteItem(){
         DocumentReference documentReference = fStore.collection("users").document(userId);
-        TodoModel oldItem = new TodoModel(itemId, itemText, checked, priority);
+        TodoModel oldItem = new TodoModel(itemId, itemText, checked, priority,oldDate);
         documentReference.update("ItemList", FieldValue.arrayRemove(oldItem));
     }
 
