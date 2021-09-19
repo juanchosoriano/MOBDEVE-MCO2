@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_addevent"
+        android:id="@+id/fab_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -28,12 +28,10 @@
         app:backgroundTint="#00221F1F"
         app:elevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarevent"
-        app:layout_constraintEnd_toEndOf="@id/tb_toolbarevent"
-        app:layout_constraintHorizontal_bias="0.997"
-        app:layout_constraintStart_toStartOf="@id/tb_toolbarevent"
+        app:layout_constraintEnd_toStartOf="@+id/fab_draw"
         app:layout_constraintTop_toTopOf="@id/tb_toolbarevent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/post"
+        app:srcCompat="@drawable/ic_clear"
         app:tint="@color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -45,7 +43,7 @@
         app:backgroundTint="#00221F1F"
         app:elevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarevent"
-        app:layout_constraintEnd_toStartOf="@+id/fab_addevent"
+        app:layout_constraintEnd_toEndOf="@+id/tb_toolbarevent"
         app:layout_constraintTop_toTopOf="@+id/tb_toolbarevent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/addphoto"
@@ -67,7 +65,7 @@
         app:tint="@color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_delevent"
+        android:id="@+id/fab_delete_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -75,13 +73,14 @@
         app:backgroundTint="#00221F1F"
         app:elevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarevent"
-        app:layout_constraintEnd_toStartOf="@+id/fab_draw"
+        app:layout_constraintEnd_toStartOf="@+id/fab_clear"
         app:layout_constraintTop_toTopOf="@+id/tb_toolbarevent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/delete"
         app:tint="@color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_backevent"
+        android:id="@+id/fab_back_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -89,10 +88,9 @@
         app:backgroundTint="#00221F1F"
         app:elevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarevent"
-        app:layout_constraintEnd_toStartOf="@+id/fab_delevent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/cancel"
         app:tint="#A35522" />
 

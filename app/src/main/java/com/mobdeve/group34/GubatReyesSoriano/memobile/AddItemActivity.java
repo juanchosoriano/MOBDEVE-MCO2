@@ -60,6 +60,7 @@ public class AddItemActivity extends AppCompatActivity {
         SimpleDateFormat sdf1 = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
         try {
             newDate = sdf1.parse(setDate);
+            this.setDate = new SimpleDateFormat("MMM dd yyyy").format(newDate);
             oldDate = newDate;
         } catch (ParseException e) {
             e.printStackTrace();
@@ -117,7 +118,7 @@ public class AddItemActivity extends AppCompatActivity {
 
                 try {
                     newDate=new SimpleDateFormat("MM/dd/yyyy").parse(date);
-                    setDate = newDate.toString();
+                    setDate = new SimpleDateFormat("MMM dd yyyy").format(newDate);;
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
