@@ -7,6 +7,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:232219195825:android:04b15bf9dfa73fa1a26590",
+        "android_client_info": {
+          "package_name": "com.mobdeve.group34.GubatReyesSoriano.memobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232219195825-al3gf64lp3c2e08ph90fvf3g6dkf9q8c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobdeve.group34.GubatReyesSoriano.memobile",
+            "certificate_hash": "82001b07c96e85c7c5608b1cc8db603e01d2900e"
+          }
+        },
+        {
+          "client_id": "232219195825-tdiq63pgglk600s5e5m42jqt3mu40na3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZaof3-1NyugDxl9-jpgB6XN85GVYtfvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232219195825-tdiq63pgglk600s5e5m42jqt3mu40na3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:232219195825:android:0c6a2f7fc2b235eaa26590",
         "android_client_info": {
           "package_name": "com.mobdeve.s11.soriano.juancho.mco2memobile"

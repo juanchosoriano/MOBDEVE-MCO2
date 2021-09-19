@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_addtodo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".AddItemActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -34,7 +36,7 @@
         app:tint="@color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_delitem"
+        android:id="@+id/fab_addDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -43,10 +45,21 @@
         app:elevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarlist"
         app:layout_constraintEnd_toStartOf="@+id/fab_color"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/fab_backlist"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_baseline_calendar_today_24"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_delitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:visibility="visible"
+        app:backgroundTint="#00221F1F"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarlist"
+        app:layout_constraintEnd_toStartOf="@+id/fab_addDate"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/delete"
         app:tint="@color/white" />
 
@@ -72,7 +85,6 @@
         android:visibility="visible"
         app:backgroundTint="#00221F1F"
         app:elevation="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tb_toolbarlist"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cancel"
@@ -89,6 +101,7 @@
         android:gravity="start|top"
         android:hint="Write details of your list item here!"
         android:inputType="textMultiLine"
+        android:maxLength="45"
         android:padding="5dp"
         android:textColor="@color/black"
         android:textColorHint="@color/lightgrey"
@@ -96,5 +109,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_addtodo_date" />
+
+    <TextView
+        android:id="@+id/tv_addtodo_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/archivo_narrow"
+        android:text="TextView"
+        android:textColor="#2E2E2E"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_toolbarlist" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

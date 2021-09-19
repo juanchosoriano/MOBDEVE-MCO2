@@ -1,4 +1,4 @@
-package com.mobdeve.s11.soriano.juancho.mco2memobile;
+package com.mobdeve.group34.GubatReyesSoriano.memobile;
 
 public class Constants {
     String id = "id";

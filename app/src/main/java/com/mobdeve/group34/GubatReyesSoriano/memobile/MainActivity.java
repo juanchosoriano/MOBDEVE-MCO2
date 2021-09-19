@@ -1,4 +1,4 @@
-package com.mobdeve.s11.soriano.juancho.mco2memobile;
+package com.mobdeve.group34.GubatReyesSoriano.memobile;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,24 +12,34 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 /*
  * I think the Main Activity can host all viewing features:
@@ -40,7 +50,7 @@ import java.util.List;
  * We'll just change the adapters depending on the one being viewed(?)
  */
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, NoteClickListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, NoteClickListener, TodoClickListener{
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle abdToggle;
     NavigationView navigationView;
@@ -49,13 +59,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FloatingActionButton fabNewEvent;
 
     FloatingActionButton fabScheduled;
-    boolean toggleScheduled;
+    boolean toggleScheduled = true;
+
+    private SharedPreferences sp;
+
 
     RecyclerView rvNotes;
     RecyclerView rvTodo;
     RecyclerView rvEvents;
     RecyclerView rvFriends;
     List<NoteModel> noteModels = new ArrayList<>();
+    List<TodoModel> todoModels = new ArrayList<>();
 
 
     FirebaseAuth fAuth;
@@ -87,20 +101,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 firstName.setText(documentSnapshot.getString("FirstName"));
                 email.setText(documentSnapshot.getString("Email"));
-                List<HashMap<String, String>> noteModelMap = (List<HashMap<String, String>>) documentSnapshot.get("NoteList");
-                //Log.d("notemodel", "notemodel" + noteModelMap.get(0).get("id"));
-
-                for (int i = 0; i<noteModelMap.size();i++){
-                    //Log.d("notemodelsMap", "notemodelsMap: " + noteModelMap.get(i).get("note_data"));
-                    noteModels.add(new NoteModel(noteModelMap.get(i).get("id"), noteModelMap.get(i).get("note_data"), noteModelMap.get(i).get("created_at")));
-                    //Log.d("notemodel", "notemodel" + noteModels.size());
-                }
-                NoteAdaptor noteAdaptor = new NoteAdaptor(noteModels, MainActivity.this);
-                noteList.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-                noteList.setAdapter(noteAdaptor);
             }
         });
-
         /*
         RecyclerView noteList = findViewById(R.id.rv_notes);
         noteModels.add(new NoteModel("1", "Dummy data 1", "July 24,2021"));
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         noteList.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         noteList.setAdapter(noteAdaptor);
         */
-        this.initComponents();
+        initComponents();
     }
 
     @Override
@@ -162,7 +164,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 this.fabNewItem.setVisibility(View.GONE);
                 this.fabNewEvent.setVisibility(View.GONE);
                 this.fabScheduled.setVisibility(View.GONE);
-
                 this.rvNotes.setVisibility(View.GONE);
                 this.rvTodo.setVisibility(View.GONE);
                 this.rvEvents.setVisibility(View.GONE);
@@ -221,6 +222,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent regIntent = new Intent (MainActivity.this, AddNoteActivity.class);
+                regIntent.putExtra("id", "null");
+                //regIntent.putExtra("note_texts", "null");
+                regIntent.putExtra("create_time", "null");
                 startActivity(regIntent);
             }
         });
@@ -230,6 +234,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent itemIntent = new Intent (MainActivity.this, AddItemActivity.class);
+                itemIntent.putExtra("todo_id", "null");
                 startActivity(itemIntent);
             }
         });
@@ -248,14 +253,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         this.fabScheduled.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences.Editor spEditor;
+                spEditor = sp.edit();
                 if(!toggleScheduled) {
                     fabScheduled.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.scheduled));
                     toggleScheduled = true;
+
+                    viewTodo();
                     Toast.makeText(MainActivity.this, "To-do list is now SCHEDULED.", Toast.LENGTH_SHORT).show();
+                    spEditor.putBoolean(Keys.SCHEDULED.name(), true);
                 } else if (toggleScheduled) {
                     fabScheduled.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.unscheduled));
                     toggleScheduled = false;
+                    viewTodo();
                     Toast.makeText(MainActivity.this, "To-do list is now UNSCHEDULED.", Toast.LENGTH_SHORT).show();
+                    spEditor.putBoolean(Keys.SCHEDULED.name(), false);
                 }
             }
         });
@@ -281,12 +293,190 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         this.rvFriends.setVisibility(View.GONE);
     }
 
+    public  void onResume() {
+        super.onResume();
+        viewNotes();
+        viewTodo();
+        this.sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        this.toggleScheduled = sp.getBoolean(Keys.SCHEDULED.name(), true);
+    }
+
+    public void viewNotes(){
+
+        RecyclerView noteList = findViewById(R.id.rv_notes);
+        DocumentReference documentReference = fStore.collection("users").document(userId);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                List<HashMap<String, String>> noteModelMap = (List<HashMap<String, String>>) documentSnapshot.get("NoteList");
+                //Log.d("notemodel", "notemodel" + noteModelMap.get(0).get("id"));
+                noteModels.clear();
+                if(noteModelMap != null) {
+                    for (int i = 0; i < noteModelMap.size(); i++) {
+                        //Log.d("notemodelsMap", "notemodelsMap: " + noteModelMap.get(i).get("note_data"));
+                        noteModels.add(new NoteModel(noteModelMap.get(i).get("id"), noteModelMap.get(i).get("note_data"), noteModelMap.get(i).get("created_at"), noteModelMap.get(i).get("imgUri")));
+                        //Log.d("notemodel", "notemodel" + noteModels.size());
+                    }
+                }
+                NoteAdaptor noteAdaptor = new NoteAdaptor(noteModels, MainActivity.this);
+                noteList.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                noteList.setAdapter(noteAdaptor);
+            }
+        });
+    }
+
+    public void viewTodo(){
+
+        RecyclerView todoList = findViewById(R.id.rv_todo);
+        DocumentReference documentReference = fStore.collection("users").document(userId);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                List<HashMap<String, String>> todoModelMap = (List<HashMap<String, String>>) documentSnapshot.get("ItemList");
+                List<HashMap<String, Boolean>> todoModelMap_c = (List<HashMap<String, Boolean>>) documentSnapshot.get("ItemList");
+                List<HashMap<String, Long>> todoModelMap_p = (List<HashMap<String, Long>>) documentSnapshot.get("ItemList");
+                List<HashMap<String, Timestamp>> todoModelMap_s = (List<HashMap<String, Timestamp>>) documentSnapshot.get("ItemList");
+//                //Log.d("notemodel", "notemodel" + noteModelMap.get(0).get("id"));
+                todoModels.clear();
+                boolean check_value = true;
+                Log.d("TODO_COUNT", ""+todoModelMap.size());
+                if(todoModelMap != null){
+                    for (int i = 0; i<todoModelMap.size();i++){
+
+//                        if(todoModelMap.get(i).get("checked").equals("True")){
+//                            todoModels.add(new TodoModel(todoModelMap.get(i).get("id"), todoModelMap.get(i).get("todo_Text")));
+//                        }
+//                        else{
+                        Date fetched_date = todoModelMap_s.get(i).get("todo_date").toDate();
+                        Log.d("PRIOR_VAL", "" + todoModelMap_p.get(i).get("priority").intValue());
+                        todoModels.add(new TodoModel(todoModelMap.get(i).get("id"), todoModelMap.get(i).get("todo_Text"), todoModelMap_c.get(i).get("checked"), todoModelMap_p.get(i).get("priority").intValue(), fetched_date));
+//                        }
+
+                        //Log.d("notemodelsMap", "notemodelsMap: " + noteModelMap.get(i).get("note_data"));
+
+                        //Log.d("notemodel", "notemodel" + noteModels.size());
+                    }
+                    if(!toggleScheduled){
+                        for (int i = 0; i < todoModels.size() - 1; i++) {
+                            int m = i;
+                            for (int j = i + 1; j < todoModels.size(); j++) {
+                                if (todoModels.get(m).getTodo_date().before(todoModels.get(j).getTodo_date()))
+                                    m = j;
+                            }
+                            //swapping elements at position i and m
+                            TodoModel temp = todoModels.get(i);
+                            todoModels.set(i, todoModels.get(m));
+                            todoModels.set(m, temp);
+                        }
+                    }else {
+                        for (int i = 0; i < todoModels.size() - 1; i++) {
+                            int m = i;
+                            for (int j = i + 1; j < todoModels.size(); j++) {
+                                if (todoModels.get(m).getPriority() > todoModels.get(j).getPriority())
+                                    m = j;
+                            }
+                            //swapping elements at position i and m
+                            TodoModel temp = todoModels.get(i);
+                            todoModels.set(i, todoModels.get(m));
+                            todoModels.set(m, temp);
+                        }
+                    }
+                }
+
+
+
+                //todoModels.add(new TodoModel("123", "Testing"));
+                TodoAdaptor todoAdaptor = new TodoAdaptor(todoModels, MainActivity.this);
+                todoList.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                todoList.setAdapter(todoAdaptor);
+            }
+        });
+    }
+
+
     @Override
     public void onClickItem(NoteModel noteModel) {
         Intent intent = new Intent(MainActivity.this, AddNoteActivity.class);
         intent.putExtra("id", noteModel.getId());
         intent.putExtra("note_texts", noteModel.getNote_data());
         intent.putExtra("create_time", noteModel.getCreated_at());
+        intent.putExtra("note_image", noteModel.getImgUri());
         startActivity(intent);
     }
+
+    @Override
+    public void onClickItem(TodoModel todoModel) {
+        Intent intent = new Intent(MainActivity.this, AddItemActivity.class);
+        intent.putExtra("todo_id", todoModel.getId());
+        intent.putExtra("todo_item", todoModel.getTodo_Text());
+        intent.putExtra("checked", todoModel.isChecked());
+        intent.putExtra("priority", todoModel.getPriority());
+        intent.putExtra("todo_date", todoModel.getTodo_date().toString());
+        startActivity(intent);
+    }
+
+
+
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        CheckBox checkBox = ((CheckBox) view);
+        boolean checked = ((CheckBox) view).isChecked();
+        DocumentReference documentReference = fStore.collection("users").document(userId);
+        String cb_message = checkBox.getText().toString();
+
+        for(int i = 0; i < todoModels.size(); i++){
+            if(cb_message.equals(todoModels.get(i).getTodo_Text())){
+                TodoModel todo_item = todoModels.get(i);
+                if (checked){
+                    Log.d("ONCHECK", view.getId() + "");
+                    todo_item.setChecked(true);
+
+                    // Log.d("GETSTRING", view.get)
+                    //TodoModel oldItem = new TodoModel(view.getId());
+//                    documentReference.update("ItemList", FieldValue.arrayRemove(oldItem));
+//                    TodoModel newItem = new TodoModel(itemId, item, checked);
+//                    documentReference.update("ItemList", FieldValue.arrayUnion(newItem));
+                }
+                else {
+                    todo_item.setChecked(false);
+//                    TodoModel oldItem = new TodoModel(itemId, itemText, checked);
+//                    documentReference.update("ItemList", FieldValue.arrayRemove(oldItem));
+//                    TodoModel newItem = new TodoModel(itemId, item, checked);
+//                    documentReference.update("ItemList", FieldValue.arrayUnion(newItem));
+                }
+                break;
+            }
+        }
+        //DocumentReference documentReference = fStore.collection("users").document(userId);
+//
+        documentReference.update("ItemList", todoModels);
+//        // Check which checkbox was clicked
+//        switch(view.getId()) {
+//            case R.id.cb_item:
+//                if (checked){
+//                    Log.d("ONCHECK", view.getId() + "");
+//
+//                   // Log.d("GETSTRING", view.get)
+//                      //TodoModel oldItem = new TodoModel(view.getId());
+////                    documentReference.update("ItemList", FieldValue.arrayRemove(oldItem));
+////                    TodoModel newItem = new TodoModel(itemId, item, checked);
+////                    documentReference.update("ItemList", FieldValue.arrayUnion(newItem));
+//                }
+//            else {
+////                    TodoModel oldItem = new TodoModel(itemId, itemText, checked);
+////                    documentReference.update("ItemList", FieldValue.arrayRemove(oldItem));
+////                    TodoModel newItem = new TodoModel(itemId, item, checked);
+////                    documentReference.update("ItemList", FieldValue.arrayUnion(newItem));
+//                }
+//                break;
+//        }
+    }
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        DocumentReference documentReference = fStore.collection("users").document(userId);
+//
+//        documentReference.update("ItemList", todoModels);
+//    }
+
 }

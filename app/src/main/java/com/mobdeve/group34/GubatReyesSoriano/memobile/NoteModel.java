@@ -1,14 +1,25 @@
-package com.mobdeve.s11.soriano.juancho.mco2memobile;
+package com.mobdeve.group34.GubatReyesSoriano.memobile;
 
 public class NoteModel {
     String id;
     String note_data;
     String created_at;
+    String imgUri;
+
+
 
     public NoteModel(String id, String note_data, String created_at) {
         this.id = id;
         this.note_data = note_data;
         this.created_at = created_at;
+        this.imgUri = "none";
+    }
+
+    public NoteModel(String id, String note_data, String created_at, String imgUri) {
+        this.id = id;
+        this.note_data = note_data;
+        this.created_at = created_at;
+        this.imgUri = imgUri;
     }
 
     public String getId() {
@@ -33,5 +44,13 @@ public class NoteModel {
 
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
+    }
+
+    public String getImgUri() {
+        return imgUri;
+    }
+
+    public void setImgUri(String imgUri) {
+        this.imgUri = imgUri;
     }
 }
