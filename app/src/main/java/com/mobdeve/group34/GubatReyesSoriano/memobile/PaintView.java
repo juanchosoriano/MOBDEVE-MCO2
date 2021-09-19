@@ -6,6 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -17,6 +19,7 @@ public class PaintView extends View {
     //public LayoutParams params;
     private Path path = new Path();
     private Paint brush = new Paint();
+    private Paint eraser = new Paint();
 
     public PaintView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -32,6 +35,18 @@ public class PaintView extends View {
 
 
         //params = new LayoutParams(100, 300);
+    }
+
+    public void removeContents(){
+        path = new Path();
+        brush = new Paint();
+
+        brush.setColor(Color.TRANSPARENT);
+        brush.setStyle(Paint.Style.STROKE);
+        brush.setStrokeJoin(Paint.Join.ROUND);
+        brush.setStrokeWidth(8f);
+        //clearPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        //this.drawRect(0, 0, 0, 0, clearPaint);
     }
 
 
@@ -67,4 +82,12 @@ public class PaintView extends View {
     }
 
 
+    public void drawMode() {
+        path = new Path();
+        brush = new Paint();
+        brush.setColor(Color.YELLOW);
+        brush.setStyle(Paint.Style.STROKE);
+        brush.setStrokeJoin(Paint.Join.ROUND);
+        brush.setStrokeWidth(8f);
+    }
 }

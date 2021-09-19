@@ -47,7 +47,7 @@ public class AddNoteActivity extends AppCompatActivity {
     FloatingActionButton fabCancel;
     FloatingActionButton fabDraw;
     FloatingActionButton fabImage;
-    FloatingActionButton fabPost;
+    FloatingActionButton fabClear;
     FloatingActionButton fabDelete;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
@@ -60,6 +60,7 @@ public class AddNoteActivity extends AppCompatActivity {
     private Uri mImageUri;
     ImageView imgView;
     PaintView myCanvas;
+    boolean toggleErase = false;
     private ActivityResultLauncher<Intent> myActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -130,7 +131,7 @@ public class AddNoteActivity extends AppCompatActivity {
          * with the exception of the cancel/back button.
          */
         final EditText note_text=findViewById(R.id.et_noteinput);
-        this.fabCancel = findViewById(R.id.fab_backevent);
+        this.fabCancel = findViewById(R.id.fab_back_note);
         this.fabCancel.setOnClickListener(new View.OnClickListener() {
             FirebaseAuth fAuth;
             FirebaseFirestore fStore;
@@ -150,9 +151,11 @@ public class AddNoteActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(myCanvas.getVisibility() == View.VISIBLE){
                     myCanvas.setVisibility(View.GONE);
+                    fabDraw.setColorFilter(Color.WHITE);
                 }
                 else {
                     myCanvas.setVisibility(View.VISIBLE);
+                    fabDraw.setColorFilter(Color.YELLOW);
                 }
 
                 //myCanvas = new PaintView(AddNoteActivity.this, null);
@@ -174,15 +177,25 @@ public class AddNoteActivity extends AppCompatActivity {
             }
         });
 
-        this.fabPost = findViewById(R.id.fab_addevent);
-        this.fabPost.setOnClickListener(new View.OnClickListener() {
+        this.fabClear = findViewById(R.id.fab_clear);
+        this.fabClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AddNoteActivity.this, "Coming soon!", Toast.LENGTH_SHORT).show();
+                if(!toggleErase){
+                    myCanvas.removeContents();
+                    fabClear.setColorFilter(Color.YELLOW);
+
+                }
+                else{
+                    myCanvas.drawMode();
+                    fabClear.setColorFilter(Color.WHITE);
+                }
+                toggleErase = !toggleErase;
+                //Toast.makeText(AddNoteActivity.this, "Coming soon!", Toast.LENGTH_SHORT).show();
             }
         });
 
-        this.fabDelete = findViewById(R.id.fab_delevent);
+        this.fabDelete = findViewById(R.id.fab_delete_note);
         this.fabDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
