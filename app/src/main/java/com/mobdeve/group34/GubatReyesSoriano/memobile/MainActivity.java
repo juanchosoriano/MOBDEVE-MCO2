@@ -22,6 +22,8 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.Timestamp;
@@ -32,6 +34,8 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -297,6 +301,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
         viewNotes();
         viewTodo();
+        viewFriends();
         this.sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         this.toggleScheduled = sp.getBoolean(Keys.SCHEDULED.name(), true);
     }
@@ -393,6 +398,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
+    public void viewFriends(){
+        List<String> friendId;
+        List<String> friendEmails;
+        List<String> friendNames;
+        friendId = new ArrayList<String>();
+        friendEmails = new ArrayList<String>();
+        friendNames = new ArrayList<String>();
+
+        fStore.collection("friends")
+                .whereEqualTo("User ID", userId)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                        String friendID = document.getString("Friend ID");
+                                String friendEmail = document.getString("Friend Email");
+                                if (!friendEmails.contains(friendEmail))
+                                    friendEmails.add(friendEmail);
+                            }
+                            ViewFriendsRecyclerViewAdapter adapter;
+                            RecyclerView recyclerView = findViewById(R.id.rv_friends);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                            adapter = new ViewFriendsRecyclerViewAdapter(friendEmails);
+                            Log.d("Emails", friendEmails.toString());
+                            recyclerView.setAdapter(adapter);
+                            Toast.makeText(MainActivity.this, friendEmails.toString(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Log.d("Error", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+    }
 
     @Override
     public void onClickItem(NoteModel noteModel) {
